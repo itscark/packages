@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('app:check-token-expiration')->daily();
+        $schedule->command('satis:purge')->dailyAt('2:00');
+        $schedule->command('satis:build')->dailyAt('3:00');
     }
 
     /**

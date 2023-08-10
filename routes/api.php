@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SatisAuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +13,3 @@ use App\Http\Controllers\SatisAuthenticationController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::post('satis/authenticate', SatisAuthenticationController::class)->middleware('auth:license-api');
