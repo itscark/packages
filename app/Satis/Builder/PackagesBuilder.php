@@ -101,6 +101,7 @@ class PackagesBuilder extends Builder
             $stableVersions = [];
             $devVersions = [];
             foreach ($versionPackages as $version => $versionConfig) {
+                unset($versionConfig['source']);
                 if ('dev' === VersionParser::parseStability($versionConfig['version'])) {
                     $devVersions[] = $versionConfig;
                 } else {
@@ -210,6 +211,15 @@ class PackagesBuilder extends Builder
         $options = JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES;
         if ($this->config['pretty-print'] ?? true) {
             $options |= JSON_PRETTY_PRINT;
+        }
+
+        foreach ($packages as $packageKey => $package) {
+            foreach ($package as $key => $version) {
+
+                unset($version['source']);
+
+                $packages[$packageKey][$key] = $version;
+            }
         }
 
         $contents = $repoJson->encode(['packages' => $packages], $options) . "\n";

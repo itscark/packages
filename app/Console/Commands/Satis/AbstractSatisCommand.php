@@ -15,6 +15,7 @@ abstract class AbstractSatisCommand extends Command
             'output-dir' => config('satis.output_dir'),
             'repositories' => [],
             'archive' => [
+                'format' => "tar",
                 'directory' => config('satis.archive.directory'),
                 'skip-dev' => config('satis.archive.skip_dev'),
             ],
