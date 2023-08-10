@@ -42,9 +42,7 @@ class ArchiveBuilder extends Builder
         $includeArchiveChecksum = (bool) ($this->config['archive']['checksum'] ?? true);
         $composerConfig = $this->composer->getConfig();
         $factory = new Factory();
-        /* @var DownloadManager $downloadManager */
         $downloadManager = $this->composer->getDownloadManager();
-        /* @var ArchiveManager $archiveManager */
         $archiveManager = $this->composer->getArchiveManager();
         $archiveManager->setOverwriteFiles(false);
 

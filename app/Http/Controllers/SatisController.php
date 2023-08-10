@@ -11,7 +11,7 @@ class SatisController extends Controller
 {
     public function index(): \Illuminate\Foundation\Application|Response|Application|ResponseFactory
     {
-        $html = file_get_contents(resource_path('views/satis/satis.html'));
+        $html = file_get_contents(resource_path('views/satis.html'));
 
         return response($html, 200)
             ->header('Content-Type', 'text/html');
@@ -19,7 +19,7 @@ class SatisController extends Controller
 
     public function packagesJson(): BinaryFileResponse
     {
-        $path = storage_path('app/satis/packages.json');
+        $path = config('satis.output_dir') . '/packages.json';
 
         if (!file_exists($path)) {
             abort(404);
@@ -30,7 +30,7 @@ class SatisController extends Controller
 
     public function dist($path): BinaryFileResponse
     {
-        $filePath = storage_path("app/satis/dist/{$path}");
+        $filePath = config('satis.output_dir') . "/dist/{$path}";
 
         if (!file_exists($filePath)) {
             abort(404, 'File not found');
@@ -41,7 +41,7 @@ class SatisController extends Controller
 
     public function serveFile($prefix, $path): BinaryFileResponse
     {
-        $filePath = storage_path("app/satis/{$prefix}/{$path}");
+        $filePath = config('satis.output_dir') . "{$prefix}/{$path}";
 
         if (!file_exists($filePath)) {
             abort(404, 'File not found');

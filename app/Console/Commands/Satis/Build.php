@@ -18,7 +18,7 @@ use Seld\JsonLint\JsonParser;
 use Seld\JsonLint\ParsingException;
 use UnexpectedValueException;
 
-class SatisBuildCommand extends AbstractSatisCommand
+class Build extends AbstractSatisCommand
 {
     /**
      * The name and signature of the console command.

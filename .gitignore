@@ -21,3 +21,5 @@ yarn-error.log
 .DS_Store
 
 resources/views/satis/satis.html
+
+resources/views/satis.html

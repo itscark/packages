@@ -70,7 +70,7 @@ class WebBuilder extends Builder
             'fieldsToToggle' => $this->fieldsToToggle,
         ]);
 
-        file_put_contents( __DIR__ . '../../../../resources/views/satis/satis.html', $content);
+        file_put_contents(resource_path('views/satis.html'), $content);
     }
 
     public function setRootPackage(RootPackageInterface $rootPackage): self
@@ -91,7 +91,7 @@ class WebBuilder extends Builder
     {
         if (null === $this->twig) {
             $twigTemplate = $this->config['twig-template'] ?? null;
-            $templateDir = $twigTemplate ? pathinfo($twigTemplate, PATHINFO_DIRNAME) : __DIR__ . '/../../../resources/views/satis';
+            $templateDir = $twigTemplate ? pathinfo($twigTemplate, PATHINFO_DIRNAME) : __DIR__ . '/../View';
             $loader = new FilesystemLoader($templateDir);
             $options = getenv('SATIS_TWIG_DEBUG') ? ['debug' => true] : [];
 

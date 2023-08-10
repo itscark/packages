@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
-class SatisPurgeCommand extends AbstractSatisCommand
+class Purge extends AbstractSatisCommand
 {
     /**
      * The name and signature of the console command.
