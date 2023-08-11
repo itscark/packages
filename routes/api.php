@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\WebhookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::post('/webhook/{package}', WebhookController::class);
