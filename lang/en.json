@@ -1,0 +1,8 @@
+{
+    "Set up Composer integration:": "Set up Composer integration:",
+    "Composer integration Help": "Execute the following command in the Shopware root folder to open the extensions repository in the `composer.json` of your project:",
+    "Requires composer version 1.10.0 or higher": "Requires composer version 1.10.0 or higher",
+    "Make sure that the auth.json file is in .gitignore to prevent credentials from getting into the git history": "Make sure that the auth.json file is in .gitignore to prevent credentials from getting into the git history",
+    "the token for authentication in the file auth.json file:": "the token for authentication in the file auth.json file:",
+    "Composer Installation": "Composer Installation"
+}

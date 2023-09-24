@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "735e766cc078347db83c7c5712bc0b24",
+    "content-hash": "f697df65b3d5e64ca012b025263c2643",
     "packages": [
         {
             "name": "brick/math",
@@ -2073,6 +2073,42 @@
                 }
             ],
             "time": "2023-09-13T02:24:55+00:00"
+        },
+        {
+            "name": "iwaves/composer-inspector",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/ComposerInspector",
+                "reference": "37fc30325be3d240c699692db1e6b4f016d59ba6"
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Iwaves\\ComposerInspector\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Iwaves\\ComposerInspector\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova resource tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "justinrainbow/json-schema",
@@ -10381,7 +10417,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "iwaves/composer-inspector": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

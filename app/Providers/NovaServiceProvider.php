@@ -16,6 +16,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Nova::serving(function () {
+            Nova::translations(__DIR__.'/../../lang/en.json');
+        });
     }
 
     /**

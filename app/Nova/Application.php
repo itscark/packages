@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Traits\UUID;
 use Illuminate\Http\Request;
+use Iwaves\ComposerInspector\ComposerInspector;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
@@ -69,6 +70,7 @@ class Application extends Resource
                 ->sortable()
                 ->rules('required'),
 
+            ComposerInspector::make()->withMeta(['application_url' => config('app.url'), 'token' => $this->model()->tokens->first()->token ?? null]),
             HasMany::make('Tokens', 'tokens', ApplicationToken::class),
 
             BelongsToMany::make('Packages'),

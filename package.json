@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-composer-inspector": "cd nova-components/ComposerInspector && npm run dev",
+        "build-composer-inspector-prod": "cd nova-components/ComposerInspector && npm run prod"
     },
     "devDependencies": {
         "axios": "^1.1.2",
