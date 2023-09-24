@@ -67,7 +67,8 @@ class ApplicationToken extends Model implements Authenticatable
     {
         return $query->where(function ($query) {
             $query->where('expires_at', '>=', Carbon::now())
-                ->orWhereNull('expires_at');
+                ->orWhereNull('expires_at')
+                ->orWhere('universal', true);
         });
     }
 

@@ -38,6 +38,10 @@ class BearerToken
             abort(401, 'Application was suspended');
         }
 
+        if ($applicationToken->universal) {
+            return $next($request);
+        }
+
         /*
          * Find the package that is being requested.
          */
