@@ -5,8 +5,8 @@ namespace App\Nova;
 use App\Nova\Actions\GenerateToken;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -55,6 +55,7 @@ class ApplicationToken extends Resource
             Text::make('Token')
                 ->hideWhenUpdating()
                 ->hideWhenCreating()->copyable(),
+            Boolean::make('Universal'),
             Date::make('Expires At', 'expires_at')->nullable(),
         ];
     }

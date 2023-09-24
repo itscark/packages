@@ -40,6 +40,10 @@ class ApplicationToken extends Model implements Authenticatable
             if (empty($model->token)) {
                 $model->token = self::generateToken();
             }
+
+            if (empty($model->universal)) {
+                $model->universal = false;
+            }
         });
     }
 
