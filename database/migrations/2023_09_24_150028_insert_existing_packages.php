@@ -59,6 +59,7 @@ return new class extends Migration {
         foreach ($data as &$item) {
             $technicalName = explode(':', $item['url']);
             $technicalName = end($technicalName);
+            $technicalName = str_replace('.git', '', $technicalName);
             $item['technicalName'] = $technicalName;
             $name = explode('/', $technicalName);
             $name = str_replace('.git', '', $name[1]);
