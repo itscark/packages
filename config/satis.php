@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => env('SATIS_NAME', 'iwaves/packagist'),
+    'name' => env('SATIS_NAME', 'iwaves/packages'),
     'homepage' => env('APP_URL', 'http://127.0.0.1:8000'),
     'output_dir' => storage_path(env('SATIS_OUTPUT_DIR', 'app/satis')),
     'archive' => [
