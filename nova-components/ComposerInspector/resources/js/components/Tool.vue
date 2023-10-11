@@ -52,7 +52,7 @@ export default {
                 copyable: true,
             },
             token: {
-                value: `composer config bearer.packages.shopware.com "${this.panel.fields[0].token}"`,
+                value: `composer config bearer.packages.iwaves.at "${this.panel.fields[0].token}"`,
                 copyable: true,
             },
         }
