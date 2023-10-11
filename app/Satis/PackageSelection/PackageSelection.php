@@ -29,6 +29,7 @@ use Composer\Repository\ConfigurableRepositoryInterface;
 use Composer\Repository\PlatformRepository;
 use Composer\Repository\RepositoryInterface;
 use Composer\Repository\RepositorySet;
+use Composer\Repository\VcsRepository;
 use Composer\Semver\Constraint\MatchAllConstraint;
 use Composer\Semver\VersionParser;
 use Composer\Util\Filesystem;
@@ -207,8 +208,6 @@ class PackageSelection
 
         if ($this->hasFilterForPackages()) {
             $repos = $this->filterPackages($repos);
-
-            dd($repos);
 
             if (0 === count($repos)) {
                 throw new \InvalidArgumentException(sprintf('Could not find any repositories config with "name" matching your package(s) filter: %s', implode(', ', $this->packagesFilter)));
@@ -569,6 +568,7 @@ class PackageSelection
      */
     private function addRepositories(RepositorySet $repositorySet, array $repositories): void
     {
+        /** @var VcsRepository $repository */
         foreach ($repositories as $repository) {
             try {
                 $repositorySet->addRepository($repository);
@@ -918,12 +918,19 @@ class PackageSelection
 
                 $config = $repository->getRepoConfig();
 
-                // We need name to be set on repo config as it would otherwise be too slow on remote repos (VCS, ..)
-                if (!isset($config['name']) || !in_array($config['name'], $packages)) {
+                if (!isset($config['url'])) {
                     return false;
                 }
 
-                return true;
+                $result = false;
+
+                foreach ($packages as $package) {
+                    if (str_contains($config['url'], $package)) {
+                        $result = true;
+                    }
+                }
+
+                return $result;
             }
         );
     }
