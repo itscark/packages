@@ -41,7 +41,12 @@ class SatisController extends Controller
 
     public function serveFile($prefix, $path): BinaryFileResponse
     {
-        $filePath = config('satis.output_dir') . "{$prefix}/{$path}";
+        $outputDir = config('satis.output_dir');
+        if (str_ends_with($outputDir, '/')) {
+            $outputDir = rtrim($outputDir, '/');
+        }
+
+        $filePath = $outputDir . "/{$prefix}/{$path}";
 
         if (!file_exists($filePath)) {
             abort(404, 'File not found');
